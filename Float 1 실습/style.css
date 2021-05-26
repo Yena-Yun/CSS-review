@@ -1,0 +1,74 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	letter-spacing: -0.02em;
+}
+
+a {
+	font-size: 18px;
+	line-height: 20px;
+	color: #8492a6;
+	text-decoration: none;
+}
+
+/* 모든 ul의 기본 list-style을 없애고
+	list-style을 위해 있었던 padding-left도 제거 */
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+/* .tab-menu {
+	overflow: hidden;
+} */
+
+/* tab-menu 아래에 있는 연한 border => figma 왼쪽 메뉴창에서 확인 가능 */
+.tab-menu {
+	border-bottom: 1px solid #E5EAEF;
+	/* 전체 길이 확인하면 width: 540px => 최대 길이를 540px로 설정 */
+	/* 화면이 더 늘어나도 이 요소는 540px 이상으로는 커지지 않음 */
+	max-width: 540px;
+}
+
+.tab-menu::after {
+	content: "";
+	clear: left;
+	display: block;
+}
+
+/* 개발자도구에서 display: list-item 라고 뜸 (= block) */
+/* 자식요소들을 모두 float 시키고 나면 부모요소인 ul의 height가 0이 됨 */
+/* 해결방법 1) tab-menu(부모요소)에 overflow: hidden */
+/* 				 2) 부모요소 바로 다음에 가상요소 만들어 그것까지 합쳐서 부모요소가 자신의 height 찾을 수 있도록 */
+.tab-menu-item {
+	float: left;
+	/* 각 항목의 우측에 간격 있음 */
+	/* figma에서 간격 확인 : 한 요소를 alt+shift(다중선택)로 누르고, 
+		다음 요소에 마우스 hover하면 사이 간격 나타남 */
+	margin-right: 16px;
+}
+
+/* a 태그에 padding을 줘야 여백부분을 클릭해도 이동이 가능 */
+/* (padding: 누르는 영역을 통통하게 만드는 역할 */
+/* 처음에 a 태그에 padding 주면 제대로 안 먹힘 
+	=> a 태그가 inline 요소여서 padding, margin 등의 영역 개념 무시 (display: block도 함께 지정) */
+.tab-menu-item a {
+	padding: 16px 20px;
+	display: block;
+}
+
+/* tab-menu-item이자 selected 클래스를 가진 li 태그 선택 */
+.tab-menu-item.selected {
+	border-bottom: 2px solid #2860E1;
+}
+
+/* tab-menu-item이자 selected 클래스를 가진 a 태그 선택 */
+.tab-menu-item.selected a {
+	color: #2860E1;
+	font-weight: 500;
+	/* border-bottom: 2px solid #2860E1; => a 태그에 border 줘도 상관없음 */
+}
