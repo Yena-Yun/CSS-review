@@ -1,0 +1,79 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	font-family: "Noto Sans KR", sans-serif;
+	letter-spacing: -0.02em;
+}
+
+h1 {
+	font-size: 16px;
+	font-weight: 400;
+	color: #1f2d3d;
+	line-height: 1.25;
+}
+
+strong {
+	font-size: 14px;
+	font-weight: 400;
+	color: #afb3b9;
+	line-height: 1.4285714286;
+}
+
+p {
+	font-size: 16px;
+	color: #79818b;
+	line-height: 1.5;
+}
+
+/* 전체를 감싸고 있는 요소에 max-width 부여 */
+.card {
+	max-width: 531px;
+	padding: 20px;
+} 
+
+/* float 해결하기 위한 가상요소 줄 때 
+	clearfix 공통 클래스 사용
+		=> 가상요소가 필요한 부모요소에 clearfix 클래스 주기 */
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both; /* 어느 방향이어도 clear 먹히도록 both로 지정 */
+}
+
+/* 프로필 이미지 */
+.card-user {
+	height: 44px;
+	width: 44px;
+	border-radius: 50%;
+
+	margin-right: 20px;
+}
+
+.card-content h1 {
+	/* margin-bottom으로 시작했으면 계속 margin-bottom으로
+	(margin-top으로 시작했으면 다른 여백도 계속 margin-top으로 (한 방향으로만 주기) */
+	margin-bottom: 4px;
+}
+
+.card-content strong {
+	/* strong은 inline요소여서 margin이 안 먹음 - block으로 바꿔주기 */
+	display: block;
+	margin-bottom: 12px;
+}
+
+.card-user,
+.card-content {
+	/* 가로정렬해야 하는 모든 자식요소에 float를 먹여야 함 */
+	float: left;
+	/* float 주고 나서 부모요소 height 확인해보기 => 0 이면 가상요소 필요 */
+}
+
+/* float 사용법
+	1) 가로배치를 할 자식요소 모두에 float 먹이기
+	2) 부모요소에 clearfix 클래스를 주고 css에서 가상요소 부여 */
+
+
+
