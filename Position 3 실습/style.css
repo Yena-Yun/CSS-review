@@ -11,6 +11,7 @@ body {
 	background-color: #000;
 }
 
+/* input, button의 기본값 제거 한번에 처리 */
 input:focus,
 input:active,
 button:focus,
@@ -53,3 +54,59 @@ button:active {
 }
 
 /* ▼ WHERE YOUR CODE BEGINS */
+
+.modal {
+	border-radius: 4px;
+	padding: 32px 40px;
+	/* 글자 외에 input도 inline 속성이므로 text-align 가능 */
+	text-align: center;
+
+	/* ** 모달창 화면 한가운데에 배치 */
+	/* fixed: viewport(브라우저 크기)를 기준으로 움직임 */
+	position: fixed; 
+	top: 50%;
+	left: 50%; /* 이렇게 하면 'top left 꼭지점'을 50%에 위치시킨다는 뜻 -> 살짝 치우침 */
+	/* fixed, top, left에 더해서 transform: translate을 '추가로' 활용 ('대체'가 아님) */
+	transform: translate(-50%, -50%);
+}
+
+.modal-title {
+	order: 1;
+	margin-bottom: 4px;
+}
+
+.modal-desc {
+	order: 3;
+	margin-bottom: 24px;
+}
+
+.input-group {
+	order: 4;
+}
+
+.input-group input {
+	width: 200px;
+	border-radius: 4px;
+	background-color: #F6F8FA;
+	border: none;
+	padding: 8px 16px;
+	margin-right: 8px;
+}
+
+.input-group button {
+	width: 90px;
+	border-radius: 4px;
+	color: #fff;
+	background-color: #2860E1;
+	border: none;
+	padding: 8px 14px;
+}
+
+.close-button {
+	order: 2;
+
+	/* 부모요소에 static이 아닌 속성(fixed)이 있으므로 absolute 사용 가능 */
+	position: absolute;
+	top: 12px;
+	right: 12px;
+}
