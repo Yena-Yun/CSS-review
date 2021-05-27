@@ -15,3 +15,76 @@ h1 {
 }
 
 /* ▼ WHERE YOUR CODE BEGINS */
+
+.user-card {
+	max-width: 240px;
+	padding: 8px 12px;
+	border: 1px solid #e5eaef;
+	border-radius: 4px;
+	background-color: aliceblue;
+}
+
+/* float 사용법: 가로배치할 모든 자식요소에 float:left 주고,
+	부모요소에 가상선택자 + content, display, clear 부여 */
+.user-card::after {
+	content: "";
+	display: block;
+	clear: left;
+}
+
+/* .user-card의 자식요소 1 */
+.user-photo {
+	float: left; /* float 부여 */
+	position: relative;
+	
+	width: 40px;
+	height: 40px;
+	margin-right: 12px;
+}
+
+/* img 태그는 개발자도구에서 확인하면 inline 요소
+- inline 요소는 높이, 너비 적용이 안 되지만 img 태그는 예외
+	(그 자체로 높이 너비를 가지고 있기 때문) */
+.user-photo img {
+	/* img에 직접 width, height 지정은 x (비율 달라질 수 있어서) */
+	/* 부모요소에서 지정하고 img의 width, height는 100%에 auto로 */
+	width: 100%;
+	height: auto;
+	border-radius: 50%;
+}
+
+/* 프로필 사진 아래 active 중임을 나타내는 초록색 동그라미 */
+/* 동그라미 자체 크기는 8px이지만 흰 border의 두께가 2px임을 고려 */
+.user-photo .user-status {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 2px solid #FFFFFF;
+	background-color: #21D891;
+
+	/* width와 height를 줬는데도 화면에 안 보일 때,
+		개발자도구에서 가장 먼저 확인해야 하는 것: 해당 요소의 display 값 */
+	/* 초록 동그라미가 span이므로 기본 display는 inline => block으로 */
+	/* display: block; */
+	/* position값을 주면 자동으로 block 먹음 */
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+/* 초록 동그라미의 너비높이를 8px로 하고 싶은 경우:
+	box-sizing을 content-box, 즉 border의 두께를 포함하지 않도록 만들어줌 */
+/* .user-status {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	border: 2px solid #FFFFFF;
+	background-color: #21D891;
+} */
+
+/* .user-card의 자식요소 2 */
+.user-name {
+	float: left; /* float 부여 */
+	/* 총 16px인데 .user-card에서 위아래 padding이 8px임을 계산 */
+	padding: 8px 0;
+}
