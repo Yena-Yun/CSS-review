@@ -1,0 +1,91 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	font-family: "Muli", sans-serif;
+	color: #273444;
+}
+
+/* h1 */
+.profile-name {
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 1.3333333333;
+}
+
+/* p */
+.profile-location {
+	font-size: 14px;
+	line-height: 1.4285714286;
+	color: #8492a6;
+}
+
+/* Friends, Projects, Reviews */
+.profile-detail dt {
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.6666666667;
+	color: #8492a6;
+}
+
+/* 730, 3, 243 숫자 */
+.profile-detail dd {
+	font-size: 32px;
+	font-weight: 300;
+	line-height: 1.25;
+	color: #0066ff;
+}
+
+/* ▼ WHERE YOUR CODE BEGINS */
+
+/* 모달창 자체를 화면 한가운데에 위치시키기 */
+body {
+	/* width와 height가 있어야 flex가 먹음 */
+	width: 100%;
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.profile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 386px;
+	border-radius: 16px;
+	padding: 32px 40px;
+	background-color:rgb(253, 253, 253);
+}
+
+.profile-image {
+	display: block;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	margin-bottom: 16px;
+}
+
+.profile-name {
+	margin-bottom: 4px;
+}
+
+.profile-location {
+	margin-bottom: 32px;
+}
+
+.profile-detail {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	/* width에 100%: 부모 width와 똑같아짐 */
+	width: 100%;
+
+	/* Friends 등의 소제목과 아래 숫자들: 왼쪽으로 치우쳐져 있음 -> 각각 가운데 정렬 */
+	text-align: center;
+}
