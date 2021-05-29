@@ -1,0 +1,38 @@
+/* ▼ WHERE YOUR CODE BEGINS */
+
+/* 기본 세팅 */
+* {
+	box-sizing: border-box; /* padding 대응 */
+	margin: 0; /* 기본 margin 제거 */
+}
+
+.container {
+	/* width는 기본적으로 부모너비의 100%로 하되 */
+	width: 100%;
+	/* 가로길이 736px 이상은 늘어나지 말 것 */
+	/* (가로길이가 너무 길면 글이 문장 끝까지 가면서 가독성이 떨어짐 => 너비 제한) */
+	max-width: 736px;
+	/* 가운데 정렬 */
+	margin: 0 auto;
+	padding: 48px;
+}
+
+h1 {
+		margin-bottom: 48px;
+}
+
+h2 {
+	margin-bottom: 24px;
+}
+
+h3 {
+	margin-bottom: 8px;
+}
+
+p {
+	margin-bottom: 32px;
+}
+
+p:last-child {
+	margin-bottom: 200px;
+}
