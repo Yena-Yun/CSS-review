@@ -26,64 +26,76 @@ button {
 	border: none;
 }
 
+/* 범용적으로 쓰이는 것일수록 위에 선언 */
 .sr-only {
-	position: absolute;
+	/* 눈에 안 보이게는 하는데, 스크린리더도 못 읽음 */
+	/* display: none; */
+
+	/* 우리 눈에는 안 보이되, 스크린리더는 읽을 수 있게 */
+	position: absolute; /* => 집 나간 아이로 만듦 (부모가 누군지 알 수도 없고, 영영 잃어버리는 상태) */
+	z-index: -100;
+
+	/* width와 height 둘 중 하나라도 0이면 
+		display: none처럼 되어버려서 스크린리더가 읽어주지 않음 */
 	width: 1px;
 	height: 1px;
-	z-index: -1;
+
+	/* 지정된 영역(1px)을 벗어나면 안 보이게 해주는 장치 */
 	overflow: hidden;
+
+	/* 투명도를 0으로 */
+	opacity: 0;
 	visibility: hidden;
 }
 
 .card {
-	width: 840px;
-	height: auto;
-	padding: 24px;
-	position: relative;
-	background: #FFFFFF;
 	display: flex;
-
+	width: 840px;
+	padding: 24px;
+	background: #FFFFFF;
 }
 
 .card-image {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
+	position: relative;
 	width: 300px;
 	height: 200px;
+	border-radius: 6px;
+
+	margin-right: 24px;
+	overflow: hidden;
 	
 	background-image: url('./assets/img-house.jpg');
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
-
-	overflow: hidden;
-	border-radius: 6px;
 }
 
-.like-button {
+.card-image .like-button {
 	width: 36px;
 	height: 36px;
-	padding: 0;
-	background-image: url('./assets/icon-favorite.svg');
-	background-size: 60% auto;
-	background-position: 55% 55%;
-	background-repeat: no-repeat;
+	border-radius: 50%;
 	background-color: #fff;
+	border: none;
 
+	background-image: url('./assets/icon-favorite.svg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 24px 24px;
+
+	cursor: pointer;
+
+	/* 바로 위의 부모(card-image)에게 relative 주면 됨 */
 	position: absolute;
-	top: 36px;
-	left: 36px;
-	border-radius: 100px;
+	top: 12px;
+	left: 12px;
 }
 
 .card-content {
-	margin-left: 25px;
-}
-
-.card-content {
-
+	/* card-content에 width를 따로 주지 않았기 때문에
+		card 레벨에서 flex를 주면 가장 길이가 긴 card-title까지만 자동으로 width가 잡힘
+		=> 이것 말고, 카드가 커질수록 content의 크기를 키우고 싶다면 flex-grow 사용 */
+	/* 남는 영역이 있으면 그냥 두는 게 아니라 content가 차지할 수 있게 함 */
+	flex-grow: 1;
 }
 
 .card-header {
@@ -91,10 +103,6 @@ button {
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 8px;
-}
-
-.property-type {
-
 }
 
 .plus-badge {
@@ -157,4 +165,24 @@ span {
 
 .property-detail {
 	font-size: 14px;
+	line-height: 16/14;
+	color: #7D858F;
+}
+
+/* 2 bedroom 옆의 가운데 점 */
+.property-detail dd span::after {
+	content: '·';
+	/* inline 요소의 경우 margin을 위아래는 줄 수 없지만 좌우는 줄 수 있음
+		(margin 자체가 안 되는 게 아님!) */
+	margin: 0 8px;
+}
+
+/* 맨 마지막 가운데 점 지워주기 */
+.property-detail dd span:last-child:after {
+	content: '';
+	margin: 0;
+}
+
+.property-detail div:first-child {
+	margin-bottom: 8px;
 }
