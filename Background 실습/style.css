@@ -3,3 +3,158 @@
 }
 
 /* ▼ WHERE YOUR CODE BEGINS */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	/* google fonts에서 import */
+	font-family: "Poppins", sans-serif;
+	letter-spacing: -0.015em;
+	background-color: black;
+
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+button {
+	border: none;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	z-index: -1;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.card {
+	width: 840px;
+	height: auto;
+	padding: 24px;
+	position: relative;
+	background: #FFFFFF;
+	display: flex;
+
+}
+
+.card-image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 300px;
+	height: 200px;
+	
+	background-image: url('./assets/img-house.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+
+	overflow: hidden;
+	border-radius: 6px;
+}
+
+.like-button {
+	width: 36px;
+	height: 36px;
+	padding: 0;
+	background-image: url('./assets/icon-favorite.svg');
+	background-size: 60% auto;
+	background-position: 55% 55%;
+	background-repeat: no-repeat;
+	background-color: #fff;
+
+	position: absolute;
+	top: 36px;
+	left: 36px;
+	border-radius: 100px;
+}
+
+.card-content {
+	margin-left: 25px;
+}
+
+.card-content {
+
+}
+
+.card-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.property-type {
+
+}
+
+.plus-badge {
+	font-size: 14px;
+	line-height: 20/14; /* figma에 나와있는 line-height에서 font-size 값을 나눠준다. */
+	color: #fff;
+	background-color: #92174D;
+	font-weight: 500;
+
+	/* inline-block: 옆에 다른 요소 둘 수 있고, padding margin 등도 줄 수 있음 */
+	display: inline-block;
+	padding: 1px 8px;
+	margin-right: 4px;
+
+	border-radius: 4px;
+	text-transform: uppercase;
+}
+
+span {
+	color: #7D858F;
+	font-size: 16px;
+	line-height: 20/16;
+}
+
+/* 4.97 옆의 별모양 */
+/* .property-rate의 맨 첫번째 자리 */
+.property-rate::before {
+	content: '';
+	/* 사이즈를 잡아줘야 하므로 block 속성 추가 */
+	display: inline-block;
+
+	width: 16px;
+	height: 16px;
+
+	background-image: url('assets/icon-star.svg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	/* 지정된 영역 안에 이미지가 안 잘리고 딱 맞게 들어가야 함 */
+	background-size: contain; 
+
+	/* 별이 살짝 위로 올라간 거 수정 */
+	position: relative; /* 주변요소에 영향 안 받고 해당 요소만 움직일 수 있음 */
+	top: 1.25px;
+}
+
+/* 4.97 */
+.property-rate strong {
+	font-weight: 400;
+	font-size: 16px;
+	color: #151B26;
+}
+
+.card-title {
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 32/20; /* 1.6 */
+	color: #151B26;
+	margin-bottom: 16px;
+}
+
+.property-detail {
+	font-size: 14px;
+}
