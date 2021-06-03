@@ -16,7 +16,8 @@
 <body>
 	<!-- class를 주는 이유: css에서 선택해서 꾸미기 위해 -->
 	<section class="landing">
-		<!-- container의 padding, margin은 Grid system을 만드는 데 쓰임 -> 절대 건들면 안 됨 -->
+		<!-- container, row, col의 padding, margin은 Grid system을 만드는 데 쓰이므로
+				절대 건들면 안 됨 (단, col의 margin-bottom 정도는 괜찮음)-->
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -43,6 +44,76 @@
 							<a href="#" class="fill-button inverted">
 								Learn more
 							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="service">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<h2 class="service-title">
+						Master the Fundamentals while Exploring new Tech
+					</h2>
+					<p class="service-desc">
+						We teach cutting-edge tech Full Stack Javascript as well as Computer Science fundamentals.
+					</p>
+				</div>
+				<div class="col-12 col-md-6">
+					<h2 class="service-title">
+						Develop Production Level Web Applications
+					</h2>
+					<p class="service-desc">
+						You put your knowledge into action with carefully designed assignments and personal software engineering
+						projects.
+					</p>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+	<section class="program">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-10">
+					<!-- 카테고리 -> 중요(strong) -->
+					<!-- program과 curriculum의 텍스트 부분 비슷 => 공통모듈을 만들어 처리  -->
+					<strong class="section-category">Program</strong>
+					<!-- section 하나 당 h1 한 개이므로 여기서도 가능 -->
+					<h1 class="section-title">
+						Frontend Dev.
+						<br />
+						Immersive Course
+					</h1>
+					<p class="section-desc">
+						Your best course for career transformation in front-end developement. This full-time bootcamp features
+						expert
+						instruction, one-on-one career coaching, and connections to top employers to get you hired.
+					</p>
+				</div>
+
+				<div class="row">
+					<div class="col-12 col-md-4">
+						<div class="program-cards">
+							<div class="program-card on-campus">
+								<h4 class="program-card-title">
+									Full-Time On Campus
+								</h4>
+							</div>
+							<div class="program-card remote">
+								<h4 class="program-card-title">
+									Full-Time On Remote
+								</h4>
+							</div>
+							<div class="program-card part-time">
+								<h4 class="program-card-title">
+									Part-Time Flex
+								</h4>
+							</div>
 						</div>
 					</div>
 				</div>
