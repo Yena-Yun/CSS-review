@@ -1,0 +1,203 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	font-family: 'DM Sans', sans-serif;
+	width: 100%;
+	height: 100vh;
+	color: #2B292D;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 700;
+}
+
+p {
+	font-size: 22;
+	font-weight: 400;
+}
+
+a {
+	border: none;
+}
+
+.button-wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.button-wrapper .fill-button:last-child {
+	margin-left: 16px;
+	background-color: #fff;
+	color: #3040C4;
+}
+
+.fill-button {
+	display: inline-block;
+	width: 160px;
+	height: 56px;
+	background-color: #3040C4;
+	color: #fff;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+}
+
+.landing {
+	padding: 120px 255px;
+	background: #FDDED8;
+	text-align: center;
+	
+}
+
+.landing-title {
+	font-size: 70px;
+	line-height: 72/70;
+	margin-bottom: 32px;
+}
+
+.landing-desc {
+	margin-bottom: 32px;
+}
+
+.landing .button-wrapper:last-child{
+
+}
+
+.testimonial {
+	padding: 80px 255px;
+	background-color: #F4F5F7;
+	display: flex;
+	align-items: center;
+}
+
+.testimonial-title {
+	font-size: 26px;
+	line-height: 34/26;
+}
+
+.testimonial-desc {
+	font-size: 22px;
+	line-height: 32/22;
+}
+
+.testimonial-desc:last-child,
+.testimonial-title:last-child {
+}
+
+.testimonial-column:last-child {
+	text-align: left;
+	margin-left: 110px;
+}
+
+.program {
+	padding: 80px 255px;
+}
+
+.program span {
+	color: #009B4D;
+	font-size: 22px;
+	line-height: 24/22;
+	margin-bottom: 16px;
+}
+
+.program-title {
+	font-size: 56px;
+	line-height: 1;
+	margin-bottom: 32px;
+}
+
+.program-desc {
+	font-size: 22px;
+	line-height: 32/22;
+	margin-bottom: 72px;
+}
+
+.program-card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 24px auto 32px;
+}
+
+.program-card img {
+	height: 195px;
+	width: auto;
+}
+
+.program-card div {
+}
+
+.program-card .on-campus {
+	background-color: #fff;
+	box-shadow: 0 4 6 0 #000;
+}
+
+.program-card .remote {
+	background-color: #3141C5;
+}
+
+.program-card .part-time {
+	background-color: #fff;
+}
+
+.curriculum {
+	padding: 80px 255px;
+
+}
+
+.curriculum span {
+	color: #0189D1;
+	font-size: 22px;
+	line-height: 24/22;
+	margin-bottom: 16px;
+}
+
+.curriculum-title {
+	font-size: 56px;
+	line-height: 1;
+	margin-bottom: 32px;
+}
+
+.curriculum-desc {
+	font-size: 22px;
+	line-height: 32/22;
+	margin-bottom: 72px;
+}
+
+.curriculum .row.desc {
+	display: flex;
+}
+
+.subscription {
+	padding: 80px 255px;
+	background-color: #F2F8FA;
+}
+
+.subscription-title {
+	font-size: 40px;
+	line-height: 1;
+	margin-bottom: 16px;
+}
+
+.subscription-desc {
+	font-size: 22px;
+	line-height: 32/22;
+	margin-bottom: 24px;
+}
+
+.subscription form {
+	display: flex;
+}
+
+.subscription input {
+	padding: 16px;
+	width: 362px;
+	border: none;
+}
