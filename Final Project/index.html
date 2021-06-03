@@ -14,21 +14,41 @@
 </head>
 
 <body>
-	<!-- Reset CSS가 필요한 element들 -->
-	<a href="#">anchor</a>
-	<button type="button">button</button>
-	<textarea name="" id="" cols="30" rows="10"></textarea>
-	<input type="text" placeholder="input" />
-	<ul>
-		<li>list</li>
-		<li>list</li>
-		<li>list</li>
-	</ul>
-	<p>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ipsa harum aspernatur possimus maiores sunt suscipit,
-		adipisci repellendus accusamus recusandae aliquid impedit consectetur nam, porro molestiae. Maiores possimus id
-		iure?
-	</p>
+	<!-- class를 주는 이유: css에서 선택해서 꾸미기 위해 -->
+	<section class="landing">
+		<!-- container의 padding, margin은 Grid system을 만드는 데 쓰임 -> 절대 건들면 안 됨 -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- landing-content: 안에 있는 요소들을 height: 100vh 내에서
+							세로로 가운데정렬 해주는 역할만 -> 100vh는 순수 모바일용! -->
+					<div class="landing-content">
+						<h1 class="landing-title">
+							Change your career,
+							<br />
+							Change your life
+						</h1>
+						<p class="landing-desc">
+							Get ahead with expert-led training in
+							<br />
+							frontend development
+						</p>
+						<!-- 버튼을 감싸는 div 하나 필요: wrapper로 명명 -->
+						<div class="button-wrapper">
+							<!-- 버튼 2개는 똑같은 구조이니 공통된 class를 주되, -->
+							<a href="#" class="fill-button">
+								Apply now
+							</a>
+							<!-- 두 번째 버튼에서는 색깔만 뒤집혔으므로 inverted 클래스 추가 -->
+							<a href="#" class="fill-button inverted">
+								Learn more
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </body>
 
 </html>

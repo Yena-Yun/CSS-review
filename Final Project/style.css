@@ -7,9 +7,6 @@
 
 body {
 	font-family: 'DM Sans', sans-serif;
-	width: 100%;
-	height: 100vh;
-	color: #2B292D;
 }
 
 /* Reset CSS */
@@ -60,18 +57,141 @@ p {
 	letter-spacing: -0.01em; /* 1% */
 }
 
-/* 아래는 768px 이상(= Desktop)일 때 */
-/* (final 프로젝트 가이드라인에 '모바일 시안과 데스크탑 시안의 
-	중단점(Breakpoint)은 768px'이라고 명시 */
-/* 중단점: 화면을 늘이거나 줄일 때 mobile에서 desktop으로 변하는 시점 */
-/* 화면이 768px 이상일 때는 Desktop의 p 태그로
-	(화면이 768px 미만일 때는 mobile 크기로) */
+/* global 하게 사용될 버튼은 landing-button 대신 fill-button 등으로 작명 */
+.fill-button {
+	/* inline 성격을 가진 flex */
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 140px;
+	height: 48px;
+	border-radius: 2px;
+	background-color: #3040C4;
+	color: #fff;
+	
+	/* 버튼 안에 들어가는 글자도 button css 내에서 처리 */
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.6;
+	letter-spacing: -0.05em;
+
+	/* transition으로 바뀔 속성 = opacity */
+	/* 마우스 올릴 때 효과가 부드럽게 나타나게 */
+	transition: opacity 300ms ease-in-out;
+}
+
+.fill-button:hover {
+	color: #fff;
+	/* 마우스 올릴 때 투명도 옅어지는 효과 */
+	opacity: 0.5;
+}
+
+/* fill-button이자 inverted인 태그 */
+/* fill-button에서 바뀌는 부분만 선언  */
+.fill-button.inverted {
+	background-color: #fff;
+	color: #3040C4;
+}
+
+.fill-button.inverted:hover {
+	color: #3040C4;
+}
+
+
+/* [실습] Landing Section */
+/* (모바일이 기본이므로, 처음에 만들 때 데스크탑 크기는 전혀 신경쓰지 말기) */
+
+/* Landing */
+/* (이 아래에는 Landing에 관련된 요소들만 배치 - global은 따로 빼기) */
+.landing {
+	background-color: #FDDED8;
+	/* 텍스트뿐만 아니라 button도 text-align으로 가운데정렬 가능 */
+	text-align: center;
+}
+
+/* 320 x 568 : iPhone SE 사이즈 
+	- landing 부분이 320px에 568px이므로 분홍 배경이 폰 사이즈 화면 하나라는 걸 알 수 있음*/
+.landing-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	width: 100%;
+	height: 100vh;
+}
+
+.landing-title {
+	margin-bottom: 24px;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.05em;
+	color: #2B292D;
+}
+
+.landing-desc {
+	margin-bottom: 24px;
+}
+
+/* .button-wrapper처럼 흔한 클래스명은 앞에 부모 클래스를 명시 */
+.landing .button-wrapper {
+	/* 위에서 text-align으로 가운데정렬한 것은 button-wrapper 단위 */
+	/* flex를 통해 button-wrapper 안의 요소들을 한번 더 정렬 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 'landing의 button-wrapper 안에 들어있는 fill-button(2개) 중 첫번째 자식요소' */
+/* = landing의 첫번째 파란 버튼 */
+.landing .button-wrapper .fill-button:first-child {
+	/* 흰 버튼과 간격 띄움 */
+	margin-right: 8px;
+}
+
+
+/* >= 768px (= Desktop) */
+/* final 프로젝트 가이드라인: '모바일 시안과 데스크탑 시안의 중단점(Breakpoint)은 768px' */
+/* (중단점: 화면을 늘이거나 줄일 때 모바일에서 데스크탑으로 변하는 시점) */
+
+/* ** 모바일에서 데스크탑으로 전환할 때 바뀌는 부분만 작성 */
+/* 화면이 768px 이상일 때는 Desktop의 p 태그 사이즈로 */
 @media screen and (min-width: 768px) {
 	/* Reset CSS */
 	p {
 		font-size: 22px;
-		line-height: 32/22; /* 1.454545454545455 */
+		line-height: 32/22; /* 1.4545454545 */
 	}
+
+	.fill-button {
+		width: 160px;
+		height: 56px;
+		font-size: 18px;
+		line-height: 1.5555555556; /* 28/18 */
+	}
+
+	/* Landing */
+	.landing-content {
+		/* 데스크탑에서는 모바일처럼 분홍색 부분의 height가 100vh(화면전체)일 필요가 없음 */
+		height: auto; /* auto를 써주면 기존 효과 무효화 */
+		padding: 120px 0; 
+	}
+
+	.landing-title {
+		margin-bottom: 32px;
+		font-size: 70px;
+		line-height: 1.0285714286; /* 72/70 */
+	}
+
+	.landing-desc {
+		margin-bottom: 32px;
+	}
+
+	.landing .button-wrapper .fill-button:first-child {
+		margin-right: 16px;
+	}
+
 }
 
 /* Custom Grid System - Fix container width */
@@ -81,186 +201,4 @@ p {
 	.container {
 		max-width: 960px !important;
 	}
-}
-
-
-/* [실습] Landing Section */
-
-
-
-.button-wrapper {
-	display: flex;
-	justify-content: center;
-}
-
-.button-wrapper .fill-button:last-child {
-	margin-left: 16px;
-	background-color: #fff;
-	color: #3040C4;
-}
-
-.fill-button {
-	display: inline-block;
-	width: 160px;
-	height: 56px;
-	background-color: #3040C4;
-	color: #fff;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border: none;
-}
-
-.landing {
-	padding: 120px 255px;
-	background: #FDDED8;
-	text-align: center;
-	
-}
-
-.landing-title {
-	font-size: 70px;
-	line-height: 72/70;
-	margin-bottom: 32px;
-}
-
-.landing-desc {
-	margin-bottom: 32px;
-}
-
-.landing .button-wrapper:last-child{
-
-}
-
-.testimonial {
-	padding: 80px 255px;
-	background-color: #F4F5F7;
-	display: flex;
-	align-items: center;
-}
-
-.testimonial-title {
-	font-size: 26px;
-	line-height: 34/26;
-}
-
-.testimonial-desc {
-	font-size: 22px;
-	line-height: 32/22;
-}
-
-.testimonial-desc:last-child,
-.testimonial-title:last-child {
-}
-
-.testimonial-column:last-child {
-	text-align: left;
-	margin-left: 110px;
-}
-
-.program {
-	padding: 80px 255px;
-}
-
-.program span {
-	color: #009B4D;
-	font-size: 22px;
-	line-height: 24/22;
-	margin-bottom: 16px;
-}
-
-.program-title {
-	font-size: 56px;
-	line-height: 1;
-	margin-bottom: 32px;
-}
-
-.program-desc {
-	font-size: 22px;
-	line-height: 32/22;
-	margin-bottom: 72px;
-}
-
-.program-card {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 24px auto 32px;
-}
-
-.program-card img {
-	height: 195px;
-	width: auto;
-}
-
-.program-card div {
-}
-
-.program-card .on-campus {
-	background-color: #fff;
-	box-shadow: 0 4 6 0 #000;
-}
-
-.program-card .remote {
-	background-color: #3141C5;
-}
-
-.program-card .part-time {
-	background-color: #fff;
-}
-
-.curriculum {
-	padding: 80px 255px;
-
-}
-
-.curriculum span {
-	color: #0189D1;
-	font-size: 22px;
-	line-height: 24/22;
-	margin-bottom: 16px;
-}
-
-.curriculum-title {
-	font-size: 56px;
-	line-height: 1;
-	margin-bottom: 32px;
-}
-
-.curriculum-desc {
-	font-size: 22px;
-	line-height: 32/22;
-	margin-bottom: 72px;
-}
-
-.curriculum .row.desc {
-	display: flex;
-}
-
-.subscription {
-	padding: 80px 255px;
-	background-color: #F2F8FA;
-}
-
-.subscription-title {
-	font-size: 40px;
-	line-height: 1;
-	margin-bottom: 16px;
-}
-
-.subscription-desc {
-	font-size: 22px;
-	line-height: 32/22;
-	margin-bottom: 24px;
-}
-
-.subscription form {
-	display: flex;
-}
-
-.subscription input {
-	padding: 16px;
-	width: 362px;
-	border: none;
 }
