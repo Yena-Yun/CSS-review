@@ -1,3 +1,5 @@
+/* [실습] 작업환경 세팅 */
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -10,20 +12,81 @@ body {
 	color: #2B292D;
 }
 
-h1,
-h2,
-h3 {
-	font-weight: 700;
-}
-
-p {
-	font-size: 22;
-	font-weight: 400;
-}
-
+/* Reset CSS */
 a {
-	border: none;
+	/* 글자색: 부모의 color 상속받기 */
+	color: inherit; 
+	/* 밑줄 없애기: border-bottom이 아니라 text-decoration */
+	text-decoration: none;
 }
+
+/* body의 font-family가 잘 안 먹는 요소들 font 따로 주기 */
+button,
+input,
+textarea {
+	font-family: 'DM Sans', sans-serif;
+	/* button, input, textarea는 기본 font-size가 11px로 아주 작음
+		=> a 태그의 기본 font-size와 동일한 16px로 변경 */
+	font-size: 16px;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:active,
+textarea:focus,
+textarea:active {
+	/* 요소 활성화 시 주변에 생기는 테두리 제거 */
+	outline: none;
+	/* 좀 더 확실하게 제거 */
+	box-shadow: none;
+}
+
+ul,
+ol,
+li {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* 본문 폰트는 보통 p 태그의 font-size를 기준으로 함
+		(p 태그들의 css들은 보통 똑같게 적용되는 경우가 많아서) */
+p {
+	font-size: 16px;
+	line-height: 24/16;
+	/* 1.5*/
+	color: #2B292D;
+	letter-spacing: -0.01em; /* 1% */
+}
+
+/* 아래는 768px 이상(= Desktop)일 때 */
+/* (final 프로젝트 가이드라인에 '모바일 시안과 데스크탑 시안의 
+	중단점(Breakpoint)은 768px'이라고 명시 */
+/* 중단점: 화면을 늘이거나 줄일 때 mobile에서 desktop으로 변하는 시점 */
+/* 화면이 768px 이상일 때는 Desktop의 p 태그로
+	(화면이 768px 미만일 때는 mobile 크기로) */
+@media screen and (min-width: 768px) {
+	/* Reset CSS */
+	p {
+		font-size: 22px;
+		line-height: 32/22; /* 1.454545454545455 */
+	}
+}
+
+/* Custom Grid System - Fix container width */
+/* 화면 사이즈가 1200px 이상일 때 */
+@media screen and (min-width: 1200px) {
+	/* container의 최대 사이즈는 960px (960px 이상으로 안 커지게) */
+	.container {
+		max-width: 960px !important;
+	}
+}
+
+
+/* [실습] Landing Section */
+
+
 
 .button-wrapper {
 	display: flex;
