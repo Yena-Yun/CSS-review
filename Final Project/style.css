@@ -24,6 +24,8 @@ input,
 textarea {
 	font-family: 'DM Sans', sans-serif;
 	font-size: 16px;
+	/* textarea 때문에 여기서는 border: none 못 줌 (button, input 사용 시 각각 따로 처리해줘야) */
+	/* border: none; */
 }
 
 /* button, input, textarea 활성화 시 기본속성 제거 */
@@ -115,7 +117,7 @@ p {
 
 /* program, curriculum 텍스트 */
 .section-category {
-	/* strong이라 inline이어서 margin 주려면 display: block 필요 */
+	/* strong 태그는 inline 속성 -> margin 주려면 block 속성 필요 */
 	display: block;
 	margin-bottom: 8px;
 	font-size: 16px;
@@ -139,10 +141,12 @@ p {
 
 .landing {
 	background-color: #FDDED8;
-	/* 텍스트뿐만 아니라 button도 text-align으로 가운데정렬 가능 */
+	/* 텍스트뿐만 아니라 button 요소도 text-align으로 가운데정렬 가능
+		=> 따라서 보통 text-align은 상위요소에게 준다 */
 	text-align: center;
 }
 
+/* 화면을 꽉 채우는 높이와 flex를 주기 위한 클래스 */
 .landing-content {
 	display: flex;
 	flex-direction: column;
@@ -165,19 +169,17 @@ p {
 	margin-bottom: 24px;
 }
 
-/* .button-wrapper처럼 흔한 클래스명은 앞에 부모 클래스를 명시해주기 */
+/* .button-wrapper처럼 흔한 클래스명은 앞에 부모(상위) 클래스를 명시해주기 */
 .landing .button-wrapper {
-	/* 위에서 text-align으로 가운데정렬한 것은 button-wrapper 단위 */
-	/* flex를 통해 button-wrapper 안의 요소들을 한번 더 정렬 */
+	/* 위에서 text-align으로 가운데 정렬한 것은 button-wrapper 단위이므로, flex를 통해 button-wrapper 안의 요소들을 한번 더 정렬 */
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-/* 'landing의 button-wrapper 안에 있는 fill-button(2개) 중 첫번째 자식요소' */
-/* (=> landing의 첫번째 파란 버튼) */
+/* 'landing의 button-wrapper 안에 있는 fill-button(2개) 중 첫번째 자식요소' (=> landing의 첫번째 파란 버튼) */
 .landing .button-wrapper .fill-button:first-child {
-	/* 흰 버튼과 사이 간격 띄움 */
+	/* 흰 버튼과 간격 띄움 */
 	margin-right: 8px;
 }
 
@@ -209,13 +211,13 @@ p {
 	color: #009B4D;
 }
 
-/* program에 row 2개 - program 소개하는 텍스트와 이미지 박스 있는 부분 */
-/* section-desc(p태그)보다 단위상 이렇게 잡는 게 의미적으로 더 맞음 */
+/* program에 row 2개 - program 소개하는 텍스트와 카드 부분 */
+/* section-desc(p태그)로 지엽적으로 잡는 것보다 이렇게 잡는 게 의미적으로 더 맞음 */
 .program .row:first-child {
 	margin-bottom: 32px;
 }
 
-/* 각 카드는 col-md-4로도 잡을 수 있음 */
+/* 각 카드는 col-md-4 클래스로도 선택 가능 */
 .program .col-md-4 {
 	margin-bottom: 20px;
 }
@@ -225,34 +227,43 @@ p {
 	margin-bottom: 0;
 }
 
+/* 카드 세 개 전체에 공통 속성 적용 */
 .program-card {
 	display: block;
 	padding: 24px 0 32px;
+	/* 면적 있는 요소는 반드시 border-radius 확인 */
 	border-radius: 8px;
 	background: #fff;
 	text-align: center;
-
-	/* figma 창 크게 해서 아래 code로 가면 코드 있음 */
+	/* figma 창 크게 해서 inpect 아래의 code로 가면 box-shadow 코드 있음 */
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1),
 	0px 4px 6px rgba(0, 0, 0, 0.05),
 	inset 0px 1px 0px rgba(255, 255, 255, 0.1);
 
 	/* hover 시 바뀌는 효과를 좀 더 부드럽게 처리
-		(program-card에 hover 효과가 있다면 transition은
-		program-card에 줘야 한다. */
-		transition: background-color 300ms ease-in-out,
-		box-shadow 300ms ease-in-out;
+	(program-card에 hover 효과가 있다면 transition은 program-card:hover가 아닌 program-card에 줘야) */
+	/* transition을 여러개에 줄 때는 ','로 연결 */
+	transition: background-color 300ms ease-in-out, box-shadow 300ms ease-in-out;
 }
 
-/* 각 카드에 마우스 hover 시 배경색이 파란색, 글자색이 흰색으로 바뀌며
-	box-shadow가 더 짙어짐 */
+/* 각 카드에 마우스 hover 시 배경색이 파란색으로, 글자색이 흰색으로 바뀌며 box-shadow도 더 짙어짐 */
+/* (strong은 가리키는 태그가 따로 있으니 따로 처리해주기) */
 .program-card:hover {
 	background-color: #3141C5;
 	box-shadow: 0px 13px 18px rgba(0, 0, 0, 0.15),
 	0px 11px 55px rgba(0, 0, 0, 0.07);
 }
 
-/* strong은 가리키는 태그가 따로 있으니 따로 처리해주기 */
+.program-card strong {
+	font-size: 18px;
+	line-height: 1.3333333333;
+	/* 24/18 */
+	letter-spacing: -0.02em;
+
+	/* hover 시 strong이 바뀌는 효과를 부드럽게 */
+	transition: color 300ms ease-in-out;
+}
+
 .program-card:hover strong {
 	color: #fff;
 }
@@ -262,24 +273,16 @@ p {
 	display: block;
 	width: auto;
 	height: 195px;
-	/* 0 auto - 이미지 가운데 정렬 */
-	/* display: flex와 다르게 margin: 0 auto는 실제 가운데정렬 하려는 요소 자체에 줘야 */
+	/* margin: 0 auto - 이미지를 가운데 정렬 */
+	/* display: flex와 다르게 margin: 0 auto는 실제로 정렬하려는 요소 자체에 줘야 함 */
 	margin: 0 auto 16px;
-}
-
-.program-card strong {
-	font-size: 18px;
-	line-height: 1.3333333333; /* 24/18 */
-	letter-spacing: -0.02em;
-
-	/* strong이 바뀌는 효과를 더 부드럽게 */
-	transition: color 300ms ease-in-out;
 }
 
 
 /* Curriculum */
 
 .curriculum .section-category {
+	/* 공통속성에 지정되지 않은 것만 따로 처리 */
 	color: #0189D1;
 }
 
@@ -288,6 +291,7 @@ p {
 }
 
 .curriculum-image {
+	/* mobile일 때는 이미지 안 보이게 */
 	display: none;
 }
 
@@ -295,28 +299,24 @@ p {
 	margin-bottom: 48px;
 }
 
-.curriculum .row:last-child {
-	margin-bottom: 40px;
-}
-
-.curriculum-detail {
-	font-size: 15px;
-	line-height: 1.4666666667; /* 22/15 */
-}
-
-/* Real-World 부분 */
-/* 'curriculum의 row의 마지막(두번째도 last-child 사용)의
-	col-12 중 첫번째 */
-/* (선택자가 조금 길어지더라도 정확하게 선택하기) */
+/* 'Real-World~' p 태그 부분 */
+/* 'curriculum의 row의 마지막(두번째도 last-child 사용)의 col-12 중 첫번째 */
+/* (선택자가 조금 길어지더라도 정확하게 선택) */
 .curriculum .row:last-child .col-12:first-child {
 	margin-bottom: 40px;
+}
+
+.curriculum-detail-desc {
+	margin-bottom: 0;
+	font-size: 15px;
+	line-height: 1.4666666667; /* 22/15 */
 }
 
 
 /* Subscription */
 
 .subscription {
-	/* text-align은 큰 범위에 주기 */
+	/* 전체 요소를 가운데 정렬하는 text-align은 제일 상위 요소에 주기 */
 	text-align: center;
 	padding: 40px 0;
 	background-color: #F2F8FA;
@@ -328,11 +328,11 @@ p {
 }
 
 .subscription-image img {
-	/* img는 inline이므로 꼭 block */
+	/* img는 inline이므로 꼭 block 속성으로 */
 	display: block;
 	width: auto;
 	height: 190px;
-	/* 이미지 가운데정렬 */
+	/* 이미지를 상위 div 내에서 가운데로 정렬 */
 	margin: 0 auto;
 }
 
@@ -349,9 +349,11 @@ p {
 	margin-bottom: 24px;
 }
 
+/* 클래스명에 최상위 클래스명('subscription')이 포함되어 있는 경우 
+	최상위 클래스명을 생략하고 해당 클래스명을 맨 앞에 사용 */
 .subscription-form .input-group {
-	/* margin을 주려는 요소가 상위 요소로 감싸져 있으면
-		개별 요소가 아닌 그 상위 요소에게 margin을 준다 */
+	/* ** margin을 주려는 요소가 상위 요소로 감싸져 있으면
+		개별 요소가 아닌 그 상위 요소에게 margin을 준다 (지엽적인 속성부여 방지) */
 	margin-bottom: 8px;
 }
 
@@ -359,7 +361,8 @@ p {
 	width: 100%;
 	height: 48px;
 	padding: 0 16px;
-	/* figma에서 요소를 여러 번 클릭하면 더 상세한 정보 조회 가능 */
+	/* figma에서 요소를 여러 번 클릭하면 더 상세한 정보 조회 가능!
+		(면적 있는 요소는 반드시 border-radius 확인한다) */
 	border-radius: 2px;
 	background-color: #fff;
 	border: none;
@@ -367,6 +370,7 @@ p {
 }
 
 .subscription-form .input-group .fill-button {
+	/* 버튼 너비를 상위 너비만큼 꽉 채우기 */
 	width: 100%;
 }
 
@@ -378,6 +382,7 @@ p {
 	letter-spacing: 0;
 }
 
+/* Terms of Use 부분 */
 .subscription-form .form-notice a {
 	color: #3040C4;
 	text-decoration: underline;
@@ -394,6 +399,7 @@ p {
 	margin-bottom: 8px;
 }
 
+/* 맨 마지막 li의 margin-bottom 제거 */
 .footer-link:last-child {
 	margin-bottom: 0;
 }
@@ -445,7 +451,6 @@ p {
 		line-height: 1;
 	}
 
-
 	/* Landing */
 	.landing-content {
 		/* 데스크탑에서는 모바일처럼 분홍색 부분의 height가 100vh(화면전체)일 필요가 없음 */
@@ -467,11 +472,8 @@ p {
 		margin-right: 16px;
 	}
 
-
 	/* Service */
-
-	/* service 부분은 모바일 상 landing 화면에서 스크롤을 내려 볼 수 있는 화면이므로 
-		height: 100vh 안 맞춰도 됨 */
+	/* 모바일 상 landing 화면에서 스크롤을 내려 볼 수 있는 화면이므로 height: 100vh 안 맞춰도 됨 */
 	.service .col-12:first-child {
 		/* 기존에 모바일에서 있었던 margin-bottom을 0으로 만들어 제거 */
 		margin-bottom: 0;
@@ -481,7 +483,6 @@ p {
 		font-size: 26px;
 		line-height: 1.3076923077; /* 34/26 */
 	}
-
 
 	/* Program */
 	.program {
@@ -501,9 +502,7 @@ p {
 		line-height: 1.2; /* 24/20 */
 	}
 
-
 	/* Curriculum */
-
 	.curriculum .section-desc {
 		margin-bottom: 72px;
 	}
@@ -514,8 +513,7 @@ p {
 
 	.curriculum-image img {
 		display: block;
-		/* width를 100%(상위요소 크기)에 맞추되,
-			아무리 커도 425px 이상은 못 커지게 함 */
+		/* width를 100%(상위요소 크기)에 맞추되, 아무리 커도 425px 이상은 못 커지게 */
 		width: 100%;
 		max-width: 425px;
 		height: auto;
@@ -525,7 +523,7 @@ p {
 		margin-bottom: 24px;
 	}
 
-	.curriculum-detail {
+	.curriculum-detail-desc {
 		font-size: 18px;
 		line-height: 1.4444444444; /* 26/18 */
 	}
@@ -548,7 +546,7 @@ p {
 
 	.subscription-image img {
 		height: 285px;
-		/* margin: 0 auto로 가운데정렬한 것을 왼쪽으로 정렬 */
+		/* margin: 0 auto로 가운데 정렬한 것을 왼쪽 정렬 */
 		margin-left: 0;
 	}
 
@@ -572,9 +570,10 @@ p {
 
 	.subscription .input-group .fill-button {
 		width: 160px;
-		/* display: flex로 요소들 배치 - 요소들의 너비가 상위 요소의 너비를 채우지 못하고 공간이 남을 경우 - 요소 중 하나에 flex-grow: 1을 주면
-			그 요소가 늘어나면서 해당 너비를 채움 // 요소들의 너비가 상위 요소의 너비를 초과해서 특정 요소의 너비가 지나치게 줄어들었을 때 - 해당 요소에
-			flex-shrink: 0(false와 비슷)을 주면 다른 요소의 너비를 줄여서라도 본래 자기 너비를 되찾음 */
+		/* display: flex로 요소들 배치 - 요소들의 너비가 상위 요소의 너비를 채우지 못하고 공간이 남을 경우, 
+			요소 중 하나에 flex-grow: 1을 주면 그 요소가 늘어나면서 해당 너비를 채움. 
+			요소들의 너비가 상위 요소의 너비를 초과해서 특정 요소의 너비가 지나치게 줄어든 경우, 
+			해당 요소에 flex-shrink: 0(false와 비슷)을 주면 다른 요소의 너비를 줄여서라도 본래 자기 너비를 되찾음 */
 		flex-shrink: 0;
 	}
 
@@ -583,9 +582,7 @@ p {
 		line-height: 1.7142857143; /* 24/14 */
 	}
 
-
 	/* Footer */
-
 	.footer {
 		padding: 16px 0;
 	}
@@ -608,9 +605,10 @@ p {
 }
 
 	/* Custom Grid System - Fix container width */
-	/* 화면 사이즈가 1200px 이상일 때 */
+	/* 프로젝트 가이드에서 '그리드 시스템은 maximum container 사이즈를 960px로 제한한다'는 부분 처리 */
+	/* 화면 사이즈가 1200px 이상일 때 (pc 화면이 클 때) */
 	@media screen and (min-width: 1200px) {
-		/* container의 최대 사이즈는 960px (960px 이상으로 안 커지게) */
+		/* container의 최대 사이즈는 960px으로 (=> 960px 이상으로 안 커지게) */
 		.container {
 			max-width: 960px !important;
 		}
