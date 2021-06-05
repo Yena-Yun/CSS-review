@@ -237,7 +237,87 @@ p {
 
 
 /* subscription */
+.subscription {
+	text-align: center;
+	padding: 40px 0;
+	background-color: #F2F8FA;
+}
 
+.subscription-image {
+	width: 290px;
+	height: auto;
+	padding: 25px 0;
+}
+
+.subscription-image img {
+	display: block;
+	width: auto;
+	height: 190px;
+	margin: 0 auto;
+}
+
+.subscription-title {
+	margin-bottom: 16px;
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.05em;
+	color: #2B292D;
+}
+
+.subscription .row:last-child .col-12:first-child {
+	margin-bottom: 24px;
+}
+
+.subscription .form-group input {
+	margin-bottom: 8px;
+	width: 100%;
+	padding: 12px 16px;
+	border: none;
+	font-size: 16px;
+	line-height: 24/16;
+	letter-spacing: -0.01em;
+}
+
+.subscription .input-group .fill-button {
+	width: 100%;
+	margin-bottom: 8px;
+}
+
+.subscription .form-group .form-notice {
+	color: #7B7B7E;
+	font-size: 13px;
+	line-height: 20/13;
+	letter-spacing: 0;
+	margin-bottom: 0;
+}
+
+.subscription .form-group .form-notice a {
+	color: #3040C4;
+	text-decoration: underline;
+}
+
+
+/* footer */
+.footer {
+	padding: 24px 0;
+}
+
+.footer-links {
+
+}
+
+.footer-link {
+	margin-bottom: 8px;
+	font-size: 14px;
+	line-height: 24/14;
+	letter-spacing: -0.01em;
+	color: #807F81;
+}
+
+.footer-link:last-child {
+	margin-bottom: 0;
+}
 
 
 @media screen and (min-width: 768px) {
@@ -354,9 +434,72 @@ p {
 
 
 	/* subscription */
+	.subscription {
+		text-align: left;
+		padding: 80px 0;
+	}
 
+	.subscription-image {
+		margin: 0;
+	}
 
+	.subscription-image img {
+		height: 285px;
+		margin: 0;
+	}
 
+	.subscription-title {
+		font-size: 40px;
+	}
+
+	.subscription .form-group {
+		width: 100%;
+	}
+
+	.subscription .form-group input {
+		margin-bottom: 0;
+		margin-right: 8px;
+		width: auto;
+		padding: 16px 16px;
+		font-size: 18px;
+		line-height: 24/18;
+	}
+
+	.subscription .input-group .fill-button {
+		margin-bottom: 0;
+		flex-shrink: 0;
+	}
+
+	.subscription .form-group .form-notice {
+		color: #7B7B7E;
+		font-size: 13px;
+		line-height: 20/13;
+		letter-spacing: 0;
+		margin-bottom: 0;
+	}
+
+	.subscription .form-group .form-notice a {
+		color: #3040C4;
+		text-decoration: underline;
+	}
+
+	/* footer */
+	.footer {
+		padding: 16px 0;
+	}
+
+	.footer-links {
+
+	}
+
+	.footer-link {
+		margin-bottom: 0;
+		margin-right: 16px;
+	}
+
+	.footer-link:last-child {
+		margin-right: 0;
+	}
 
 
 }
