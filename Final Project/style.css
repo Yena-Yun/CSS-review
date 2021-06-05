@@ -61,14 +61,15 @@ p {
 
 /* global 하게 사용할 버튼: 구체적인 이름(landing-button) 대신 더 보편적인 이름(fill-button)으로 */
 .fill-button {
-	/* inline-flex: inline 성격을 가진 flex (=> flex도 줄 수 있으면서 inline 속성으로 나란히 배치 가능) */
 	width: 140px;
 	height: 48px;
+	/* inline-flex: inline 성격을 가진 flex (=> flex도 줄 수 있으면서 inline 속성으로 나란히 배치 가능) */
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
 	/* 기본 border 제거 */
 	border: none;
+	/* button이나 input 등 면적 있는 요소들은 border-radius 꼭 확인 */
 	border-radius: 2px;
 	background-color: #3040C4;
 	color: #fff;
@@ -76,7 +77,7 @@ p {
 	/* 버튼 안에 들어가는 텍스트 => button의 {children}이므로 button 내에서 처리 */
 	font-size: 15px;
 	font-weight: 700;
-	line-height: 1.6;
+	line-height: 1.6; /* 24/15 */
 	letter-spacing: -0.05em;
 
 	/* 마우스 hover 시 투명도 효과 부드럽게 나타나게 */
@@ -422,6 +423,7 @@ p {
 	.fill-button {
 		width: 160px;
 		height: 56px;
+		/* 버튼 안의 폰트도 처리 (폰트크기와 줄간격만 달라짐) */
 		font-size: 18px;
 		line-height: 1.5555555556; /* 28/18 */
 	}
