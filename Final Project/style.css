@@ -8,45 +8,50 @@ body {
 }
 
 /* Reset CSS */
+
+/* a 태그의 기본속성 없애기 */
 a {
 	/* 글자색: 부모의 color 상속받기 */
 	color: inherit; 
-	/* 밑줄 없애기: border-bottom이 아니라 text-decoration */
+	/* 밑줄 없애기 (a의 밑줄은 border-bottom이 아니라 text-decoration) */
 	text-decoration: none;
 }
 
-/* body의 font-family가 잘 안 먹는 요소들 font 따로 주기 */
+/* body의 font-family가 잘 안 먹는 요소들: button, input, textarea
+	=> font-family와 기본 글자크기 따로 주기 (기본 크기가 11px로 너무 작아서 16px로 변경) */
 button,
 input,
 textarea {
 	font-family: 'DM Sans', sans-serif;
-	/* button, input, textarea는 기본 font-size가 11px로 아주 작음
-		=> a 태그의 기본 font-size와 동일한 16px로 변경 */
 	font-size: 16px;
 }
 
+/* button, input, textarea 활성화 시 기본속성 제거 */
 button:focus,
 button:active,
 input:focus,
 input:active,
 textarea:focus,
 textarea:active {
-	/* 요소 활성화 시 주변에 생기는 테두리 제거 */
+	/* 주변에 생기는 테두리 제거 */
 	outline: none;
-	/* 좀 더 확실하게 제거 */
 	box-shadow: none;
 }
 
+/* ul, ol, li 처리 */
 ul,
 ol,
 li {
+	/* li 옆의 동그란 글머리 기호 제거 */
 	list-style-type: none;
+	/* 들여쓰기 때문에 자동으로 생기는 padding과 margin 제거 */
 	padding: 0;
 	margin: 0;
 }
 
 /* 본문 폰트는 보통 p 태그의 font-size를 기준으로 함
-		(p 태그들의 css들은 보통 똑같게 적용되는 경우가 많아서) */
+		(p 태그가 양이 많기도 하고, 보통 전체 p 태그 css가 똑같게 적용되는 경우가 많아서) */
+/* 전체 p 태그의 글자크기, 줄간격, 글자색깔, 글자간격 지정 */
 p {
 	font-size: 16px;
 	line-height: 1.5; /* 24/16 */
@@ -54,37 +59,38 @@ p {
 	letter-spacing: -0.01em; /* 1% */
 }
 
-/* global 하게 사용될 버튼은 landing-button 대신 fill-button 등으로 작명 */
+/* global 하게 사용할 버튼: 구체적인 이름(landing-button) 대신 더 보편적인 이름(fill-button)으로 */
 .fill-button {
-	/* inline 성격을 가진 flex */
+	/* inline-flex: inline 성격을 가진 flex (=> flex도 줄 수 있으면서 inline 속성으로 나란히 배치 가능) */
+	width: 140px;
+	height: 48px;
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-
-	width: 140px;
-	height: 48px;
+	/* 기본 border 제거 */
+	border: none;
 	border-radius: 2px;
 	background-color: #3040C4;
 	color: #fff;
 	
-	/* 버튼 안에 들어가는 글자도 button css 내에서 처리 */
+	/* 버튼 안에 들어가는 텍스트 => button의 {children}이므로 button 내에서 처리 */
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 1.6;
 	letter-spacing: -0.05em;
 
-	/* transition으로 바뀔 속성 = opacity */
-	/* 마우스 올릴 때 효과가 부드럽게 나타나게 */
+	/* 마우스 hover 시 투명도 효과 부드럽게 나타나게 */
 	transition: opacity 300ms ease-in-out;
 }
 
 .fill-button:hover {
+	/* 기본이 a 태그여서 hover하면 글자가 파랗게 됨 => 제거 */
 	color: #fff;
-	/* 마우스 올릴 때 투명도 옅어지는 효과 */
+	/* 마우스 올릴 때 투명도 높아지는 효과 */
 	opacity: 0.5;
 }
 
-/* fill-button이자 inverted인 태그 */
+/* 'fill-button이자 inverted인 태그' -> 구체적으로 선택 */
 /* fill-button에서 바뀌는 부분만 선언  */
 .fill-button.inverted {
 	background-color: #fff;
@@ -96,12 +102,12 @@ p {
 }
 
 
-/* (모바일이 기본이므로, 처음에 만들 때 데스크탑 크기는 전혀 신경쓰지 말기) */
-/* 모바일 작업화면 확인할 때는 개발자도구 상단의 'Toggle device toolbar' 활용 */
+/* (모바일이 기본값이므로, 처음에 만들 때 데스크탑 크기는 신경쓰지 말기) */
+/* mobile용 작업화면 확인 -> 개발자도구 상단의 'Toggle device toolbar' 활용 */
 
 
 /* 공통 모듈 */
-/* (program 파트와 curriculum 파트에서 공통으로 쓰임) */
+/* (program 파트와 curriculum 파트에서 공통으로 쓰이는 부분) */
 .section {
 	padding: 80px 0;
 }
@@ -127,7 +133,8 @@ p {
 
 
 /* Landing Section */
-/* (이 아래에는 Landing에 관련된 요소들만 배치 - global 파트는 따로 빼기) */
+/* 320 x 568 : iPhone SE 사이즈 
+	=> landing 부분이 320px에 568px이므로 분홍 배경이 곧 폰사이즈 화면전체라는 걸 알 수 있음 */
 
 .landing {
 	background-color: #FDDED8;
@@ -135,8 +142,6 @@ p {
 	text-align: center;
 }
 
-/* 320 x 568 : iPhone SE 사이즈 
-	- landing 부분이 320px에 568px이므로 분홍 배경이 폰 사이즈 화면 전체라는 걸 알 수 있음*/
 .landing-content {
 	display: flex;
 	flex-direction: column;
@@ -159,7 +164,7 @@ p {
 	margin-bottom: 24px;
 }
 
-/* .button-wrapper처럼 흔한 클래스명은 앞에 부모 클래스를 명시 */
+/* .button-wrapper처럼 흔한 클래스명은 앞에 부모 클래스를 명시해주기 */
 .landing .button-wrapper {
 	/* 위에서 text-align으로 가운데정렬한 것은 button-wrapper 단위 */
 	/* flex를 통해 button-wrapper 안의 요소들을 한번 더 정렬 */
@@ -168,8 +173,8 @@ p {
 	align-items: center;
 }
 
-/* 'landing의 button-wrapper 안에 들어있는 fill-button(2개) 중 첫번째 자식요소' */
-/* = landing의 첫번째 파란 버튼 */
+/* 'landing의 button-wrapper 안에 있는 fill-button(2개) 중 첫번째 자식요소' */
+/* (=> landing의 첫번째 파란 버튼) */
 .landing .button-wrapper .fill-button:first-child {
 	/* 흰 버튼과 사이 간격 띄움 */
 	margin-right: 8px;
@@ -270,14 +275,145 @@ p {
 	transition: color 300ms ease-in-out;
 }
 
+
+/* Curriculum */
+
+.curriculum .section-category {
+	color: #0189D1;
+}
+
+.curriculum .section-desc {
+	margin-bottom: 32px;
+}
+
+.curriculum-image {
+	display: none;
+}
+
+.curriculum .row:first-child {
+	margin-bottom: 48px;
+}
+
+.curriculum .row:last-child {
+	margin-bottom: 40px;
+}
+
+.curriculum-detail {
+	font-size: 15px;
+	line-height: 1.4666666667; /* 22/15 */
+}
+
+/* Real-World 부분 */
+/* 'curriculum의 row의 마지막(두번째도 last-child 사용)의
+	col-12 중 첫번째 */
+/* (선택자가 조금 길어지더라도 정확하게 선택하기) */
+.curriculum .row:last-child .col-12:first-child {
+	margin-bottom: 40px;
+}
+
+
+/* Subscription */
+
+.subscription {
+	/* text-align은 큰 범위에 주기 */
+	text-align: center;
+	padding: 40px 0;
+	background-color: #F2F8FA;
+}
+
+.subscription-image {
+	padding: 25px 0;
+	margin-bottom: 16px;
+}
+
+.subscription-image img {
+	/* img는 inline이므로 꼭 block */
+	display: block;
+	width: auto;
+	height: 190px;
+	/* 이미지 가운데정렬 */
+	margin: 0 auto;
+}
+
+.subscription-title {
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 1; 
+	letter-spacing: -0.05em;
+	margin-bottom: 16px;
+	color: #2B292D;
+}
+
+.subscription-desc {
+	margin-bottom: 24px;
+}
+
+.subscription-form .input-group {
+	/* margin을 주려는 요소가 상위 요소로 감싸져 있으면
+		개별 요소가 아닌 그 상위 요소에게 margin을 준다 */
+	margin-bottom: 8px;
+}
+
+.subscription-form .input-group input {
+	width: 100%;
+	height: 48px;
+	padding: 0 16px;
+	/* figma에서 요소를 여러 번 클릭하면 더 상세한 정보 조회 가능 */
+	border-radius: 2px;
+	background-color: #fff;
+	border: none;
+	margin-bottom: 8px;
+}
+
+.subscription-form .input-group .fill-button {
+	width: 100%;
+}
+
+.subscription-form .form-notice {
+	color: #7B7B7E;
+	font-size: 13px;
+	line-height: 1.5384615385; /* 20/13 */
+	/* 원래 p에 있던 letter-spacing 초기화 */
+	letter-spacing: 0;
+}
+
+.subscription-form .form-notice a {
+	color: #3040C4;
+	text-decoration: underline;
+}
+
+
+/* Footer */
+
+.footer {
+	padding: 24px 0;
+}
+
+.footer-link {
+	margin-bottom: 8px;
+}
+
+.footer-link:last-child {
+	margin-bottom: 0;
+}
+
+.footer-link a {
+	color: #807F81;
+	font-size: 14px;
+	line-height: 1.7142857143; /* 24/14 */
+	letter-spacing: -0.01em;
+}
+
+
 /* >= 768px (Desktop) */
 /* final 프로젝트 가이드라인: '모바일 시안과 데스크탑 시안의 중단점(Breakpoint)은 768px' */
 /* (중단점: 화면을 늘이거나 줄일 때 모바일에서 데스크탑으로 변하는 시점) */
 
-/* ** 모바일에서 데스크탑으로 전환할 때 바뀌는 부분만 작성 */
-/* 화면이 768px 이상일 때는 Desktop의 p 태그 사이즈로 */
+/* 모바일에서 데스크탑으로 전환할 때(= 화면이 768px 이상일 때) 바뀌는 부분만 작성 */
 @media screen and (min-width: 768px) {
+
 	/* Reset CSS */
+
 	p {
 		font-size: 22px;
 		line-height: 32/22; /* 1.4545454545 */
@@ -290,6 +426,7 @@ p {
 		line-height: 1.5555555556; /* 28/18 */
 	}
 
+	/* program, curriculum 공통 부분 */
 	.section {
 		padding-bottom: 96px;
 	}
@@ -363,13 +500,116 @@ p {
 	}
 
 
+	/* Curriculum */
+
+	.curriculum .section-desc {
+		margin-bottom: 72px;
+	}
+
+	.curriculum-image {
+		display: block;
+	}
+
+	.curriculum-image img {
+		display: block;
+		/* width를 100%(상위요소 크기)에 맞추되,
+			아무리 커도 425px 이상은 못 커지게 함 */
+		width: 100%;
+		max-width: 425px;
+		height: auto;
+	}
+
+	.curriculum .row:first-child {
+		margin-bottom: 24px;
+	}
+
+	.curriculum-detail {
+		font-size: 18px;
+		line-height: 1.4444444444; /* 26/18 */
+	}
+
+	.curriculum .row:last-child .col-12:first-child {
+		margin-bottom: 0;
+	}
+
+
+	/* Subscription */
+
+	.subscription {
+		text-align: left;
+		padding: 80px 0;
+	}
+
+	.subscription-image {
+		padding: 8px 0;
+	}
+
+	.subscription-image img {
+		height: 285px;
+		/* margin: 0 auto로 가운데정렬한 것을 왼쪽으로 정렬 */
+		margin-left: 0;
+	}
+
+	.subscription-title {
+		font-size: 40px;
+	}
+
+	.subscription-form .input-group {
+		display: flex;
+		align-items: center;
+		margin-bottom: 4px;
+	}
+
+	.subscription .input-group input {
+		height: 56px;
+		font-size: 18px;
+		line-height: 1.3333333333; /* 24/18 */
+		margin-bottom: 0;
+		margin-right: 8px;
+	}
+
+	.subscription .input-group .fill-button {
+		width: 160px;
+		/* display: flex로 요소들 배치 - 요소들의 너비가 상위 요소의 너비를 채우지 못하고 공간이 남을 경우 - 요소 중 하나에 flex-grow: 1을 주면
+			그 요소가 늘어나면서 해당 너비를 채움 // 요소들의 너비가 상위 요소의 너비를 초과해서 특정 요소의 너비가 지나치게 줄어들었을 때 - 해당 요소에
+			flex-shrink: 0(false와 비슷)을 주면 다른 요소의 너비를 줄여서라도 본래 자기 너비를 되찾음 */
+		flex-shrink: 0;
+	}
+
+	.subscription-form .form-notice {
+		font-size: 14px;
+		line-height: 1.7142857143; /* 24/14 */
+	}
+
+
+	/* Footer */
+
+	.footer {
+		padding: 16px 0;
+	}
+
+	.footer-links {
+		/* 가로 배치 */
+		display: flex;
+		align-items: center;
+	}
+
+	.footer-link {
+		margin-right: 16px;
+		margin-bottom: 0;
+	}
+
+	.footer-link:last-child {
+		margin-right: 0;
+	}
+
 }
 
-/* Custom Grid System - Fix container width */
-/* 화면 사이즈가 1200px 이상일 때 */
-@media screen and (min-width: 1200px) {
-	/* container의 최대 사이즈는 960px (960px 이상으로 안 커지게) */
-	.container {
-		max-width: 960px !important;
+	/* Custom Grid System - Fix container width */
+	/* 화면 사이즈가 1200px 이상일 때 */
+	@media screen and (min-width: 1200px) {
+		/* container의 최대 사이즈는 960px (960px 이상으로 안 커지게) */
+		.container {
+			max-width: 960px !important;
+		}
 	}
-}
