@@ -39,13 +39,9 @@
 						<!-- 버튼 여러개를 감싸는 div가 하나 필요: wrapper 또는 group -->
 						<div class="button-wrapper">
 							<!-- 버튼 2개는 똑같은 구조니까 공통된 class를 주고 -->
-							<a href="#" class="fill-button">
-								Apply now
-							</a>
+							<a href="#" class="fill-button">Apply now</a>
 							<!-- 두 번째 버튼에서는 색깔만 뒤집혔으므로 그걸 처리하기 위한 'inverted' 클래스 추가 -->
-							<a href="#" class="fill-button inverted">
-								Learn more
-							</a>
+							<a href="#" class="fill-button inverted">Learn more</a>
 						</div>
 					</div>
 				</div>
@@ -74,7 +70,6 @@
 					</p>
 				</div>
 			</div>
-		</div>
 		</div>
 	</section>
 
@@ -108,7 +103,7 @@
 					<a href="#" class="program-card">
 						<!-- (여기서는 a 태그가 div의 역할을 하므로 따로 image 클래스 주기 위한 div 만들지 않음) -->
 						<img src="./assets/img-fulltime-campus.png" alt="fulltime-campus">
-						<!-- p로 하기에는 길이가 짧지만, span으로 하기에는 중요한 내용임 -> strong -->
+						<!-- p로 하기에는 길이가 짧지만, span으로 하기에는 중요한 내용 -> strong으로 처리 -->
 						<strong>
 							Full-Time On Campus
 						</strong>
@@ -156,8 +151,8 @@
 					</a>
 				</div>
 				<div class="col-12 col-md-6">
-					<!-- img는 div로 한번 더 감싸줌 -> img 사이즈의 기준이 되는 width 부여(img에서는 width: 100%로 처리), 
-							css에서 선택하기 위한 클래스도 여기에 부여 -->
+					<!-- img는 div로 한번 더 감싸줌 -> img 사이즈의 기준이 되는 width 부여(img에서는 width: 100%로 처리)
+							+ css에서 선택하기 위한 클래스도 여기에 부여 -->
 					<div class="curriculum-image">
 						<img src="./assets/img-curriculum.png" alt="curriculum">
 					</div>
@@ -185,9 +180,10 @@
 		</div>
 	</section>
 
-	<!-- 구독은 주된 내용을 전달하는 파트는 아니어서 section이 아닌 aside로 처리 -->
+	<!-- 구독은 주된 정보를 전달하는 파트는 아니어서 section이 아닌 aside로 처리 -->
 	<aside class="subscription">
 		<div class="container">
+			<!-- row 갯수는 데스크탑일 때가 기준 - 데스크탑에서 봤을 때 1개면 1개로 잡아야 함 -->
 			<div class="row align-items-center">
 				<div class="col-12 col-md-5">
 					<!-- img를 div로 한번 더 감싸주고 클래스를 줌 -->
@@ -203,7 +199,7 @@
 					<p class="subscription-desc">
 						Subscribe to our email newsletter to stay up to date on the latest updates
 					</p>
-					<!-- form의 클래스는 해당 섹션명 + form -->
+					<!-- form의 클래스 = 해당 섹션명 + form -->
 					<form class="subscription-form" action="" method="POST">
 						<!-- form 안에 div(input-group)를 넣어 input과 button을 감싼다 -->
 						<div class="input-group">
@@ -225,8 +221,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<!-- footer의 list 목록이므로 ul, li를 사용 -->
-					<!-- ul과 li을 css에서 선택하기 위해 각각 class를 준다 (보통 ul은 li에 주는 클래스명의 복수형)-->
+					<!-- 의미상 'footer의 list목록'이므로 ul과 li를 사용 -->
+					<!-- ul과 li을 css에서 선택하기 위한 class를 각각 준다 (ul은 보통 li에 주는 클래스명의 복수형)-->
 					<ul class="footer-links">
 						<li class="footer-link">
 							<a href="#">Terms</a>

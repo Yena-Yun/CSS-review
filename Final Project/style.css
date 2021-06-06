@@ -148,12 +148,12 @@ p {
 
 /* 화면을 꽉 채우는 높이와 flex를 주기 위한 클래스 */
 .landing-content {
+	width: 100%;
+	height: 100vh;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-
-	width: 100%;
-	height: 100vh;
 }
 
 .landing-title {
@@ -217,7 +217,8 @@ p {
 	margin-bottom: 32px;
 }
 
-/* 각 카드는 col-md-4 클래스로도 선택 가능 */
+/* 마지막 카드의 margin-bottom을 없애주는 작업을 해야 하므로 program-card에 넣지 않고 따로 뺀다 */
+/* 각 카드를 col-md-4 클래스로 선택한다 */
 .program .col-md-4 {
 	margin-bottom: 20px;
 }
@@ -227,7 +228,7 @@ p {
 	margin-bottom: 0;
 }
 
-/* 카드 세 개 전체에 공통 속성 적용 */
+/* 카드 세 개에 공통 속성 적용 */
 .program-card {
 	display: block;
 	padding: 24px 0 32px;
@@ -239,7 +240,6 @@ p {
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1),
 	0px 4px 6px rgba(0, 0, 0, 0.05),
 	inset 0px 1px 0px rgba(255, 255, 255, 0.1);
-
 	/* hover 시 바뀌는 효과를 좀 더 부드럽게 처리
 	(program-card에 hover 효과가 있다면 transition은 program-card:hover가 아닌 program-card에 줘야) */
 	/* transition을 여러개에 줄 때는 ','로 연결 */
@@ -259,7 +259,6 @@ p {
 	line-height: 1.3333333333;
 	/* 24/18 */
 	letter-spacing: -0.02em;
-
 	/* hover 시 strong이 바뀌는 효과를 부드럽게 */
 	transition: color 300ms ease-in-out;
 }
@@ -337,11 +336,11 @@ p {
 }
 
 .subscription-title {
+	margin-bottom: 16px;
 	font-size: 32px;
 	font-weight: 700;
 	line-height: 1; 
 	letter-spacing: -0.05em;
-	margin-bottom: 16px;
 	color: #2B292D;
 }
 
@@ -362,7 +361,7 @@ p {
 	height: 48px;
 	padding: 0 16px;
 	/* figma에서 요소를 여러 번 클릭하면 더 상세한 정보 조회 가능!
-		(면적 있는 요소는 반드시 border-radius 확인한다) */
+		(button, input 등 면적 있는 요소는 반드시 border-radius와 background-color 확인!!) */
 	border-radius: 2px;
 	background-color: #fff;
 	border: none;
@@ -423,7 +422,7 @@ p {
 
 	p {
 		font-size: 22px;
-		line-height: 32/22; /* 1.4545454545 */
+		line-height: 1.4545454545; /* 32/22 */
 	}
 
 	.fill-button {
@@ -455,6 +454,7 @@ p {
 	.landing-content {
 		/* 데스크탑에서는 모바일처럼 분홍색 부분의 height가 100vh(화면전체)일 필요가 없음 */
 		height: auto; /* auto를 써주면 기존 효과 무효화 */
+		/* 위아래로 padding 120px */
 		padding: 120px 0; 
 	}
 
@@ -486,7 +486,12 @@ p {
 
 	/* Program */
 	.program {
+		/* 모바일에서는 텍스트가 왼쪽정렬이지만 데스크탑 버전에서는 가운데정렬임 */
 		text-align: center;
+	}
+
+	.program-card {
+		margin-bottom: 0;
 	}
 
 	.program .row:first-child {
@@ -541,6 +546,7 @@ p {
 	}
 
 	.subscription-image {
+		/* padding만 위아래로 8px */
 		padding: 8px 0;
 	}
 
@@ -555,8 +561,11 @@ p {
 	}
 
 	.subscription-form .input-group {
+		/* input창과 button을 가로정렬 */
 		display: flex;
+		/* 그 안에서 세로축으로 가운데 */
 		align-items: center;
+		/* 아래 'Cancel ~' 부분과의 margin */
 		margin-bottom: 4px;
 	}
 
@@ -569,6 +578,7 @@ p {
 	}
 
 	.subscription .input-group .fill-button {
+		/* width를 특정 px로 정하고 */
 		width: 160px;
 		/* display: flex로 요소들 배치 - 요소들의 너비가 상위 요소의 너비를 채우지 못하고 공간이 남을 경우, 
 			요소 중 하나에 flex-grow: 1을 주면 그 요소가 늘어나면서 해당 너비를 채움. 
@@ -588,7 +598,7 @@ p {
 	}
 
 	.footer-links {
-		/* 가로 배치 */
+		/* 데스크탑에서는 가로 배치 */
 		display: flex;
 		align-items: center;
 	}

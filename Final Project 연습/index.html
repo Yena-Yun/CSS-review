@@ -17,15 +17,17 @@
 	<section class="landing">
 		<div class="container">
 			<div class="row">
-				<div class="landing-content">
-					<div class="col-12">
+				<div class="col-12">
+					<div class="landing-content">
 						<h1 class="landing-title">
 							Change your career,
 							<br />
 							Change your life
 						</h1>
 						<p class="landing-desc">
-							Get ahead with expert-led training in frontend development
+							Get ahead with expert-led training
+							<br />
+							in frontend development
 						</p>
 						<div class="button-wrapper">
 							<a href="#" class="fill-button">Apply now</a>
@@ -41,17 +43,19 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-md-6">
-					<strong class="service-title">
+					<!-- 크고 짙은 글자이면 h1,h2 등 headinig 태그를 먼저 고려한 뒤
+							적절한 게 없을 경우에만 strong 태그 사용 -->
+					<h2 class="service-title">
 						Master the Fundamentals while Exploring new Tech
-					</strong>
+					</h2>
 					<p class="service-desc">
 						We teach cutting-edge tech Full Stack Javascript as well as Computer Science fundamentals.
 					</p>
 				</div>
 				<div class="col-12 col-md-6">
-					<strong class="service-title">
+					<h2 class="service-title">
 						Develop Production Level Web Applications
-					</strong>
+					</h2>
 					<p class="service-desc">
 						You put your knowledge into action with carefully designed assignments and personal software engineering
 						projects.
@@ -64,10 +68,9 @@
 	<section class="program section">
 		<div class="container">
 			<div class="row">
+				<!-- 데스크탑일 때 너무 크다 싶으면 꼭 그리드 확인 -->
 				<div class="col-12">
-					<strong class="section-category">
-						Program
-					</strong>
+					<strong class="section-category">Program</strong>
 					<h1 class="section-title">
 						Frontend Dev.
 						<br />
@@ -83,19 +86,19 @@
 			<div class="row">
 				<div class="col-12 col-md-4">
 					<a href="#" class="program-card">
-						<img src="./assets/img-fulltime-campus.png" alt="">
+						<img src="./assets/img-fulltime-campus.png" alt="fulltime-campus">
 						<strong>Full-Time On Campus</strong>
 					</a>
 				</div>
 				<div class="col-12 col-md-4">
 					<a href="#" class="program-card">
-						<img src="./assets/img-fulltime-remote.png" alt="">
+						<img src="./assets/img-fulltime-remote.png" alt="fulltime-remote">
 						<strong>Full-Time Remote</strong>
 					</a>
 				</div>
 				<div class="col-12 col-md-4">
 					<a href="#" class="program-card">
-						<img src="./assets/img-parttime-flex.png" alt="">
+						<img src="./assets/img-parttime-flex.png" alt="parttime-flex">
 						<strong>Part-Time Flex</strong>
 					</a>
 				</div>
@@ -105,13 +108,15 @@
 
 	<section class="curriculum section">
 		<div class="container">
-			<div class="row">
+			<div class="row align-items-center">
 				<div class="col-12 col-md-6">
 					<strong class="section-category">
 						Curriculum
 					</strong>
 					<h1 class="section-title">
-						Dive into the web development
+						Dive into the web
+						<br />
+						development
 					</h1>
 					<p class="section-desc">
 						Dive into the software development environment and the basics of computing, networks, and data structures.
@@ -120,22 +125,23 @@
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="curriculum-image">
-						<img src="./assets/img-curriculum.png" alt="">
+						<img src="./assets/img-curriculum.png" alt="curriculum">
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-12 col-md-6">
 					<p class="curriculum-detail-desc">
-						<strong>Real-World Projects.</strong> Solve challenges that professional engineers face as you work
+						<strong>Real-World Projects.</strong>
+						Solve challenges that professional engineers face as you work
 						individually and in teams with designers.
 					</p>
 				</div>
 				<div class="col-12 col-md-6">
 					<p class="curriculum-detail-desc">
-						<strong>Individualised Instructor Support.</strong> Get guidance, feedback, and more during scheduled
-						one-on-one
-						check-ins.
+						<strong>Individualised Instructor Support.</strong>
+						Get guidance, feedback, and more during scheduled
+						one-on-one check-ins.
 					</p>
 				</div>
 			</div>
@@ -144,14 +150,13 @@
 
 	<aside class="subscription">
 		<div class="container">
-			<div class="row">
+			<div class="row align-items-center">
 				<div class="col-12 col-md-5">
 					<div class="subscription-image">
 						<img src="./assets/img-banner.png" alt="Subscribe Us">
 					</div>
 				</div>
-			</div>
-			<div class="row">
+
 				<div class="col-12 col-md-7">
 					<h1 class="subscription-title">
 						Stay with us
@@ -161,12 +166,13 @@
 					</p>
 				</div>
 				<div class="col-12 col-md-7">
-					<form class="form-group" action="" method="POST">
+					<form class="subscription-form" action="" method="POST">
 						<div class="input-group">
 							<input type="email" placeholder="Enter your email">
 							<button type="submit" class="fill-button">Get started</button>
 						</div>
 						<p class="form-notice">
+							<!-- a 태그는 form-notice 안에서 선택가능하므로 굳이 클래스 안 줘도 됨 -->
 							Cancel any time. Check out <a href="#">Terms of Use.</a>
 						</p>
 					</form>
@@ -178,17 +184,24 @@
 	<footer class="footer">
 		<div class="container">
 			<div class="row">
+				<!-- 데스크탑일 때 세 개를 다 합쳐 한 줄이므로 col-12만 책정 -->
 				<div class="col-12">
 					<ul class="footer-links">
-						<li class="footer-link">Terms</li>
-						<li class="footer-link">Privacy</li>
-						<li class="footer-link">License</li>
+						<li class="footer-link">
+							<!-- 누르면 어딘가로 이동하니까 a 태그로 처리 -->
+							<a href="#">Terms</a>
+						</li>
+						<li class="footer-link">
+							<a href="#">Privacy</a>
+						</li>
+						<li class="footer-link">
+							<a href="#">License</a>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</footer>
-
 </body>
 
 </html>

@@ -21,12 +21,12 @@ textarea {
 	font-size: 16px;
 }
 
-button:active,
 button:focus,
-input:active,
+button:active,
 input:focus,
-textarea:active,
-textarea:focus {
+input:active,
+textarea:focus, 
+textarea:active {
 	outline: none;
 	box-shadow: none;
 }
@@ -86,6 +86,8 @@ p {
 }
 
 .section-category {
+	/* margin이 안 먹는다 싶으면 inline 태그인지 확인 */
+	display: block;
 	margin-bottom: 8px;
 	font-size: 16px;
 	line-height: 24/16;
@@ -101,15 +103,11 @@ p {
 	color: #2B292D;
 }
 
-.section-desc {
-	margin-bottom: 32px;
-}
-
 
 /* landing */
 .landing {
-	text-align: center;
 	background-color: #FDDED8;
+	text-align: center;
 }
 
 .landing-content {
@@ -117,8 +115,8 @@ p {
 	height: 100vh;
 
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
-	align-items: center;
 }
 
 .landing-title {
@@ -137,6 +135,7 @@ p {
 .landing .button-wrapper {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 
 .landing .button-wrapper .fill-button:first-child {
@@ -150,11 +149,16 @@ p {
 	background-color: #F4F5F7;
 }
 
+.service .col-12:first-child {
+	margin-bottom: 40px;
+}
+
 .service-title {
+	margin-bottom: 16px;
 	font-size: 22px;
+	font-weight: 700;
 	line-height: 30/22;
 	letter-spacing: -0.04em;
-	margin-bottom: 16px;
 	color: #2B292D;
 }
 
@@ -162,29 +166,36 @@ p {
 	margin-bottom: 0;
 }
 
-.service .col-12:first-child {
-	margin-bottom: 40px;
-}
-
 
 /* program */
+
 .program .section-category {
 	color: #009B4D;
 }
 
-.program-card {
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 20px;
-	padding: 24px 0 32px;
+/* figma에 나타난 숫자가 같더라도 위치가 다르면 공통모듈(section)으로 잡으면 안 됨 */
+.program .row:first-child {
+	margin-bottom: 32px;
+}
 
-	background-color: #fff;
+.program .col-md-4 {
+	margin-bottom: 20px;
+}
+
+.program .col-md-4:last-child {
+	margin-bottom: 0;
+}
+
+.program-card {
+	/* 카드가 a 태그로 되어 있으므로 padding 주기 위해 block화 */
+	display: block;
+	padding: 24px 0 32px;
 	border-radius: 8px;
+	background-color: #fff;
+	text-align: center;
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1),
 	0px 4px 6px rgba(0, 0, 0, 0.05),
 	inset 0px 1px 0px rgba(255, 255, 255, 0.1);
-
 	transition: background-color 300ms ease-in-out, box-shadow 300ms ease-in-out;
 }
 
@@ -195,6 +206,8 @@ p {
 }
 
 .program-card img {
+	/* img는 inline이므로 margin이나 width 주려면 display: block 필요 */
+	display: block;
 	width: auto;
 	height: 195px;
 	margin: 0 auto 16px;
@@ -217,6 +230,11 @@ p {
 	color: #0189D1;
 }
 
+/* program에서와 curriculum에서의 section-desc 다음에 오는 요소가 다르므로 공통모듈(section)에 넣지 않는다 */
+.curriculum .section-desc {
+	margin-bottom: 32px;
+}
+
 .curriculum-image {
 	display: none;
 }
@@ -227,8 +245,9 @@ p {
 	line-height: 22/15;
 }
 
+/* Apply now 버튼을 선택하고 거리 측정하면 60px 나옴 (figma에서 선택 시 주의) */
 .curriculum .row:first-child {
-	margin-bottom: 60px;
+	margin-bottom: 48px;
 }
 
 .curriculum .row:last-child .col-12:first-child {
@@ -244,9 +263,9 @@ p {
 }
 
 .subscription-image {
-	width: 290px;
-	height: auto;
+	/* padding 있고 안의 내용물 크기 지정해주면 바깥쪽 width, height는 필요없음 */
 	padding: 25px 0;
+	margin-bottom: 16px;
 }
 
 .subscription-image img {
@@ -265,34 +284,44 @@ p {
 	color: #2B292D;
 }
 
-.subscription .row:last-child .col-12:first-child {
+.subscription-desc {
 	margin-bottom: 24px;
 }
 
-.subscription .form-group input {
+/* .subscription .input-group .fill-button { */
+/* fill-button이 아니라 input-group 아래에 마진을 줘야 함 */
+.subscription-form .input-group {
 	margin-bottom: 8px;
+}
+
+.subscription-form .input-group input {
 	width: 100%;
-	padding: 12px 16px;
+	/* 16의 배수이면 왠만하면 써 주는 듯 */
+	height: 48px;
+	padding: 0 16px;
+	border-radius: 2px;
+	background-color: #fff;
 	border: none;
-	font-size: 16px;
-	line-height: 24/16;
-	letter-spacing: -0.01em;
-}
-
-.subscription .input-group .fill-button {
-	width: 100%;
 	margin-bottom: 8px;
+
+	/* input에는 padding이 있기 때문에 placeholder의 font-size는 잘 고려하지 않는 듯 */
 }
 
-.subscription .form-group .form-notice {
+.subscription-form .input-group .fill-button {
+	width: 100%;
+}
+
+/* 무조건 최상위 클래스명을 맨앞에 둘 필요없음
+	(중간단계에서 최상위 클래스명을 포함한 클래스가 있다면 거기부터 시작해도 됨 */
+.subscription-form .form-notice {
 	color: #7B7B7E;
 	font-size: 13px;
 	line-height: 20/13;
 	letter-spacing: 0;
-	margin-bottom: 0;
+	/* margin-bottom: 0; */
 }
 
-.subscription .form-group .form-notice a {
+.subscription-form .form-notice a {
 	color: #3040C4;
 	text-decoration: underline;
 }
@@ -303,20 +332,25 @@ p {
 	padding: 24px 0;
 }
 
-.footer-links {
-
-}
-
 .footer-link {
 	margin-bottom: 8px;
-	font-size: 14px;
+	/* 글자 크기를 li 단계에서 지정하지 말고 안에 a 태그가 있다면 더 정확하게 선택 */
+	/* font-size: 14px;
 	line-height: 24/14;
 	letter-spacing: -0.01em;
-	color: #807F81;
+	color: #807F81; */
 }
 
 .footer-link:last-child {
 	margin-bottom: 0;
+}
+
+/* li 태그 안의 a 태그의 글자 속성 */
+.footer-link a {
+	font-size: 14px;
+	line-height: 24/14;
+	letter-spacing: -0.01em;
+	color: #807F81;
 }
 
 
@@ -338,7 +372,9 @@ p {
 
 	/* 공통 모듈 */
 	.section {
-		padding: 80px 0;
+		/* 모바일일 때는 padding이 위아래로 80px이었지만 데스크탑에서는 위는 80px, 아래는 96px임
+			=> 달라진 bottom 부분만 처리 */
+		padding-bottom: 96px;
 	}
 
 	.section-category {
@@ -353,12 +389,15 @@ p {
 		line-height: 1;
 	}
 
-	.section-desc {
-		margin-bottom: 72px;
-	}
-
 
 	/* landing */
+	.landing-content {
+		/* 데스크탑에서는 모바일처럼 분홍색 부분의 height가 100vh(화면전체)일 필요가 없음 */
+		height: auto; /* auto를 써주면 기존 효과 무효화 */
+		/* 위아래로 padding 120px */
+		padding: 120px 0;
+	}
+	
 	.landing-title {
 		margin-bottom: 32px;
 		font-size: 70px;
@@ -386,14 +425,22 @@ p {
 
 
 	/* program */
+	.program {
+		/* 모바일에서는 텍스트가 왼쪽정렬이지만 데스크탑 버전에서는 가운데정렬임 */
+		text-align: center;
+	}
+
 	.program-card {
 		margin-bottom: 0;
 	}
 
+	.program .row:first-child {
+		margin-bottom: 72px;
+	}
+
 	.program-card img {
-		width: auto;
-		height: 195px;
-		margin: 0 auto 24px;
+		/* margin-bottom만 16px에서 24px로 바뀜 */
+		margin-bottom: 24px;
 	}
 
 	.program-card strong {
@@ -409,19 +456,24 @@ p {
 
 	.curriculum-image {
 		display: block;
-		width: 450px;
-		height: 450px;
 	}
 
 	.curriculum-image img {
-		width: 425px;
+		/* 없던 이미지가 새로 나타남 */
+		display: block;
+
+		/* width: 425px; */
+		/* width를 바로 특정 px로 맞추지 말고, 상위요소(curriculum-image) 너비에 맞추되 특정 px 이상으로는 커지지 않게
+			=> 이미지가 너무 크다 싶을 경우 사용할 수 있는 방법 */
+		width: 100%;
+		max-width: 425px;
 		height: auto;
 	}
 
 	.curriculum-detail-desc {
 		margin-bottom: 0;
-		font-size: 15px;
-		line-height: 22/15;
+		font-size: 18px;
+		line-height: 26/18;
 	}
 
 	.curriculum .row:first-child {
@@ -440,48 +492,46 @@ p {
 	}
 
 	.subscription-image {
-		margin: 0;
+		padding: 8px 0;
 	}
 
 	.subscription-image img {
 		height: 285px;
-		margin: 0;
+		/* margin: 0 auto로 가운데 정렬한 것을 왼쪽 정렬 */
+		margin-left: 0;
 	}
 
 	.subscription-title {
 		font-size: 40px;
 	}
 
-	.subscription .form-group {
-		width: 100%;
+	.subscription-form .input-group {
+		display: flex;
+		align-items: center;
+		margin-bottom: 4px;
 	}
 
-	.subscription .form-group input {
-		margin-bottom: 0;
-		margin-right: 8px;
-		width: auto;
+	.subscription .input-group input {
+		height: 56px;
 		padding: 16px 16px;
 		font-size: 18px;
 		line-height: 24/18;
+		margin-bottom: 0;
+		margin-right: 8px;
 	}
 
 	.subscription .input-group .fill-button {
-		margin-bottom: 0;
+		/* margin-bottom이 없어야 버튼이 줄어듦 - 왜지?? */
+		/* margin-bottom: 0; */
+		width: 160px;
 		flex-shrink: 0;
 	}
 
-	.subscription .form-group .form-notice {
-		color: #7B7B7E;
-		font-size: 13px;
-		line-height: 20/13;
-		letter-spacing: 0;
-		margin-bottom: 0;
+	.subscription-form .form-notice {
+		font-size: 14px;
+		line-height: 24/14;
 	}
 
-	.subscription .form-group .form-notice a {
-		color: #3040C4;
-		text-decoration: underline;
-	}
 
 	/* footer */
 	.footer {
@@ -489,7 +539,9 @@ p {
 	}
 
 	.footer-links {
-
+		/* 데스크탑에서는 가로 배치 */
+		display: flex;
+		align-items: center;
 	}
 
 	.footer-link {
@@ -506,6 +558,6 @@ p {
 
 @media screen and (min-width: 1200px) {
 	.container {
-		max-width: 960px;
+		max-width: 960px !important;
 	}
 }
