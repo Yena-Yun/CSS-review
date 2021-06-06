@@ -14,7 +14,7 @@
 ### 2. Position
 <img width="60%" src="https://user-images.githubusercontent.com/68722179/120911693-3b8e4000-c6c4-11eb-9d3a-66d8f070017a.png" />
 
-<img width="80%" src="https://user-images.githubusercontent.com/68722179/120911694-3c26d680-c6c4-11eb-8158-48807321f0ec.png" />
+<img width="70%" src="https://user-images.githubusercontent.com/68722179/120911694-3c26d680-c6c4-11eb-8158-48807321f0ec.png" />
 
 
 ### 3. Flexbox
@@ -29,7 +29,7 @@
 
 ### 4. Media Query
 1) 모바일 버전
-<img width="80%" src="https://user-images.githubusercontent.com/68722179/120911701-46e16b80-c6c4-11eb-9de4-4a651a50ea11.png" />
+<img width="60%" src="https://user-images.githubusercontent.com/68722179/120911701-46e16b80-c6c4-11eb-9de4-4a651a50ea11.png" />
 
 2) 데스크탑 버전
 <img width="80%" src="https://user-images.githubusercontent.com/68722179/120911702-48ab2f00-c6c4-11eb-8f58-bca141b4d89a.png" />
