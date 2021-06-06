@@ -18,7 +18,8 @@
 
 
 ### 3. Flexbox
-<img width="60%" src="https://user-images.githubusercontent.com/68722179/120911697-3f21c700-c6c4-11eb-8e92-e68bdd0ea6f0.png" />
+(float 1,2와 동일한 예제 사용)
+<img width="80%" src="https://user-images.githubusercontent.com/68722179/120911697-3f21c700-c6c4-11eb-8e92-e68bdd0ea6f0.png" />
 
 <img width="80%" src="https://user-images.githubusercontent.com/68722179/120911698-3fba5d80-c6c4-11eb-8e10-70658c6198c3.png" />
 
