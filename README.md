@@ -12,24 +12,19 @@
 
 
 ### 2. Position
-1)
-<img width="60%" src="https://user-images.githubusercontent.com/68722179/120911693-3b8e4000-c6c4-11eb-9d3a-66d8f070017a.png" />
+1) <img width="60%" src="https://user-images.githubusercontent.com/68722179/120911693-3b8e4000-c6c4-11eb-9d3a-66d8f070017a.png" />
 
-2)
-<img width="80%" src="https://user-images.githubusercontent.com/68722179/120911694-3c26d680-c6c4-11eb-8158-48807321f0ec.png" />
+2) <img width="80%" src="https://user-images.githubusercontent.com/68722179/120911694-3c26d680-c6c4-11eb-8158-48807321f0ec.png" />
 
 
 ### 3. Flexbox
-1) 
+1) <img width="80%" src="https://user-images.githubusercontent.com/68722179/120911697-3f21c700-c6c4-11eb-8e92-e68bdd0ea6f0.png" />
 (float 1과 동일한 예제 사용)
-<img width="80%" src="https://user-images.githubusercontent.com/68722179/120911697-3f21c700-c6c4-11eb-8e92-e68bdd0ea6f0.png" />
 
-2)
+2) <img width="80%" src="https://user-images.githubusercontent.com/68722179/120911698-3fba5d80-c6c4-11eb-8e10-70658c6198c3.png" />
 (float 2와 동일한 예제 사용)
-<img width="80%" src="https://user-images.githubusercontent.com/68722179/120911698-3fba5d80-c6c4-11eb-8e10-70658c6198c3.png" />
 
-3)
-<img width="80%" src="https://user-images.githubusercontent.com/68722179/120911699-3fba5d80-c6c4-11eb-9676-34e7af6a1aae.png" />
+3) <img width="80%" src="https://user-images.githubusercontent.com/68722179/120911699-3fba5d80-c6c4-11eb-9676-34e7af6a1aae.png" />
 
 
 ### 4. Media Query
