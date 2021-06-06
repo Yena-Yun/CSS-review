@@ -32,7 +32,7 @@
 <img width="60%" src="https://user-images.githubusercontent.com/68722179/120911701-46e16b80-c6c4-11eb-9de4-4a651a50ea11.png" />
 
 2) 데스크탑 버전
-<img width="80%" src="https://user-images.githubusercontent.com/68722179/120911702-48ab2f00-c6c4-11eb-8f58-bca141b4d89a.png" />
+<img width="90%" src="https://user-images.githubusercontent.com/68722179/120911702-48ab2f00-c6c4-11eb-8f58-bca141b4d89a.png" />
 
 
 ### 5. Typography
