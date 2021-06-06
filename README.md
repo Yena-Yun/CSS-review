@@ -44,7 +44,7 @@
 
 
 ### 5. Transition
-<img width="80%" src="https://user-images.githubusercontent.com/68722179/120911710-5660b480-c6c4-11eb-9f69-cafc57691670.gif" />
+<img width="60%" src="https://user-images.githubusercontent.com/68722179/120911710-5660b480-c6c4-11eb-9f69-cafc57691670.gif" />
 
 
 ### 5. Animation
