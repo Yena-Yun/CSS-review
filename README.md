@@ -43,10 +43,10 @@
 
 
 ### 5. Transition
-<img width="50%" src="https://user-images.githubusercontent.com/68722179/120912145-cb81b900-c6c7-11eb-9f4b-4b071a271104.gif" />
+<img width="40%" src="https://user-images.githubusercontent.com/68722179/120912145-cb81b900-c6c7-11eb-9f4b-4b071a271104.gif" />
 
 
 ### 5. Animation
-<img width="70%" src="https://user-images.githubusercontent.com/68722179/120912144-ca508c00-c6c7-11eb-87ab-a28bfee591ee.gif" />
+<img width="80%" src="https://user-images.githubusercontent.com/68722179/120912144-ca508c00-c6c7-11eb-87ab-a28bfee591ee.gif" />
 
 
